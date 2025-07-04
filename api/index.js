@@ -25,27 +25,29 @@ app.get("/", (req, res) => {
     },
   ];
 
-  res.render("index", {
-    title: "Halaman Home",
-    nama: "Adam",
-    layout: "layouts/main-layout",
-    mahasiswa,
-  });
+  // res.render("index", {
+  //   title: "Halaman Home",
+  //   nama: "Adam",
+  //   layout: "layouts/main-layout",
+  //   mahasiswa,
+  // });
+
+  res.send("<h1>Yeayyy kamu hebat!</h1>");
 });
 
-app.get("/about", (req, res) => {
-  res.render("about", {
-    title: "Halaman About",
-    layout: "layouts/main-layout",
-  });
-});
+// app.get("/about", (req, res) => {
+//   res.render("about", {
+//     title: "Halaman About",
+//     layout: "layouts/main-layout",
+//   });
+// });
 
-app.get("/contact", (req, res) => {
-  res.render("contact", {
-    title: "Halaman Contact",
-    layout: "layouts/main-layout",
-  });
-});
+// app.get("/contact", (req, res) => {
+//   res.render("contact", {
+//     title: "Halaman Contact",
+//     layout: "layouts/main-layout",
+//   });
+// });
 
 app.use("/", (req, res) => {
   res.send("<h1>404 Page Not Found!</h1>");
