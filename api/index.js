@@ -48,7 +48,7 @@ app.get("/contact", (req, res) => {
 });
 
 app.use("/", (req, res) => {
-  res.sendStatus(404).send("<h1>404 Page Not Found!</h1>");
+  res.send("<h1>404 Page Not Found!</h1>");
 });
 
 // app.listen(1234, () => {
