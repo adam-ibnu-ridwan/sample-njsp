@@ -3,7 +3,7 @@ const expressLayouts = require("express-ejs-layouts");
 const app = express();
 const path = require("path");
 
-app.set("views", path.join(__dirname, "views")); // lihat poin 2
+app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(expressLayouts);
 app.use(express.static(path.join(__dirname, "public")));
@@ -29,9 +29,23 @@ app.get("/", (req, res) => {
 
   res.render("index", {
     title: "Halaman Home",
-    nama: "Adam", // data bebas
+    nama: "Adam",
     layout: "layouts/main-layout",
     mahasiswa,
+  });
+});
+
+app.get("/about", (req, res) => {
+  res.render("about", {
+    title: "Halaman About",
+    layout: "layouts/main-layout",
+  });
+});
+
+app.get("/contact", (req, res) => {
+  res.render("contact", {
+    title: "Halaman Contact",
+    layout: "layouts/main-layout",
   });
 });
 
