@@ -1,10 +1,12 @@
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const app = express();
+const path = require("path");
 
+app.set("views", path.join(__dirname, "views")); // lihat poin 2
 app.set("view engine", "ejs");
 app.use(expressLayouts);
-app.use(express.static("public"));
+// app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
   const mahasiswa = [
@@ -25,14 +27,11 @@ app.get("/", (req, res) => {
     },
   ];
 
-  // res.render("index", {
-  //   title: "Halaman Home",
-  //   nama: "Adam",
-  //   layout: "layouts/main-layout",
-  //   mahasiswa,
-  // });
-
-  res.send("<h1>Yeayyy kamu hebat!</h1>");
+  res.render("index", {
+    title: "Halaman Home",
+    nama: "Adam", // data bebas
+    mahasiswa,
+  });
 });
 
 // app.get("/about", (req, res) => {
