@@ -8,6 +8,16 @@ app.use(expressLayouts);
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
+  res.render("index", {
+    title: "Halaman Home",
+    layout: "layouts/main-layout",
+    mahasiswa,
+  });
+});
+
+module.exports = app;
+
+app.get("/", (req, res) => {
   const mahasiswa = [
     {
       nama: "Adam Ridwan",
@@ -52,4 +62,4 @@ app.use("/", (req, res) => {
   res.send("<h1>404 Page Not Found!</h1>");
 });
 
-module.exports = app;
+// module.exports = app;
