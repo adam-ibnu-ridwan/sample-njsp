@@ -2,11 +2,13 @@ const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const app = express();
 const path = require("path");
-const serverless = require("serverless-http");
 
 app.set("view engine", "ejs");
 app.use(expressLayouts);
 app.use(express.static("public"));
+
+app.set("views", path.join(__dirname, "..", "views"));
+app.use(express.static(path.join(__dirname, "..", "public")));
 
 app.get("/", (req, res) => {
   const mahasiswa = [
@@ -53,4 +55,4 @@ app.use("/", (req, res) => {
   res.send("<h1>404 Page Not Found!</h1>");
 });
 
-module.exports = serverless(app);
+module.exports = app;
