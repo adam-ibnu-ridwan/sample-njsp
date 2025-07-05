@@ -1,0 +1,5 @@
+Application Level Middleware: get, use
+Router Level Middleware: 
+Error Handling Middleware:
+Built-in Middleware: statis, json, urlencoded
+Third Party Middleware: 
